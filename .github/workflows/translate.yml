@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: translate
-        uses: sheenhx/translatei18n
+        uses: sheenhx/translatei18n@main
         with:
           GIT_COMMIT_HASH: ${{ github.event.pull_request.head.sha }}
           GIT_PATCH_OUTPUT: ${{ github.event.pull_request.patch_url }}
