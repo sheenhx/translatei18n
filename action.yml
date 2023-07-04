@@ -1,5 +1,5 @@
-name: 'GPT4ReviewWorkflow'
-description: 'GPT-4 reviews your PR'
+name: 'Translate'
+description: 'GPT-4 translate i18n'
 branding:
   icon: 'eye'
   color: 'gray-dark'
@@ -39,19 +39,19 @@ runs:
         shell: bash
         run: |
           sudo apt-get update
-          python3 -m venv .env2
-          source .env2/bin/activate
+          python3 -m venv .env3
+          source .env3/bin/activate
           python -m pip install -U pip
           pip install openai
           pip install requests
       - name: Fetch review logic
         uses: wei/wget@v1
         with:
-          args: -O review.py https://raw.githubusercontent.com/sheenhx/GPT4ReviewWorkflow/chunk/review.py
+          args: -O review.py https://raw.githubusercontent.com/sheenhx/translatei18n/main/review.py
       - name: Review PR and make comment
         shell: bash
         run: |
-          source .env2/bin/activate
+          source .env3/bin/activate
           python review.py
         env:
           GIT_COMMIT_HASH: ${{ inputs.GIT_COMMIT_HASH }}
