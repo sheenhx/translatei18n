@@ -1,6 +1,8 @@
 import json
 import openai
 import os
+import time
+
 
 def translate(text, target_language):
     model = "gpt-4"
@@ -70,6 +72,7 @@ def main():
         for k, v in data_en.items():
             if k not in data_target or not data_target[k]:
                 data_target[k] = translate(v, lang)
+                time.sleep(1)  # Pauses the program for 1 second
 
         # Save the translated JSON
         with open(f'{directory}/{lang}.json', 'w') as f:
