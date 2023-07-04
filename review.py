@@ -1,5 +1,6 @@
 import json
 import openai
+import os
 
 def translate(text, target_language):
     model = "gpt-4"
