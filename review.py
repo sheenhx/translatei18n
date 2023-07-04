@@ -7,7 +7,7 @@ def translate(text, target_language):
     openai.api_key = os.getenv("OPENAI_API_KEY")
     openai.organization = os.getenv("OPENAI_ORG_KEY")
     complete_prompt = '''    
-    Act as professional translator in crypto, use json in response to translate the crypto app json from english to target language (ISO 3166 country codes).remove all unnecessary comment in response just return back json.Plesae make sure you return the all JSON key/value, key formats should be exactly the same.
+    Act as professional translator in crypto, use json in response to translate the crypto app json from english to target language (ISO 3166 country codes).remove all unnecessary comment in response just return back json.Plesae make sure you return the all JSON key/value, key formats should be exactly the same. Double check whether you return valid json format before sending me response.
     The targeted language:    
     '''
     prompt = complete_prompt + target_language + text
